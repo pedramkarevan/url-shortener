@@ -17,20 +17,13 @@ class SharedRangeService  {
     var client: CuratorFramework? = null
     private var count: DistributedAtomicLong? = null
 
-
-
-
-
     @PostConstruct
     open fun postConstruct() {
-
         client = CuratorFrameworkFactory.newClient(
             SharedRangeService.zooServer,
             ExponentialBackoffRetry(1000, 3)
         )
-
         client!!.start()
-
         count = DistributedAtomicLong(
             client, SharedRangeService.counterPath,
             RetryNTimes(10, 10)

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 class ExceptionControllerAdvice {
     @ExceptionHandler
     fun handleIllegalStateException(ex: IllegalStateException): ResponseEntity<ErrorMessageModel> {
-
         val errorMessage = ErrorMessageModel(
             HttpStatus.NOT_FOUND.value(),
             ex.message

@@ -39,9 +39,8 @@ class UrlController {
         if (!urlValidator.isValid(url))
             return ResponseEntity.badRequest().body("Invalid URL format.")
         val urlObject: UrlMapping = UrlMapping(urlGeneratorService!!.getNewURL(url)!!, url!!)
-        var tinyUrl=urlMappingService?.save(urlObject)
+        var tinyUrl = urlMappingService?.save(urlObject)
         redisTemplate!!.opsForValue()[tinyUrl!!.newUrl.toString(), urlObject, ttl] = TimeUnit.SECONDS
-      //  return ResponseEntity.ok<Any>("localhost:8080/urls/" + urlMappingService?.save(urlObject)?.newUrl)
         return ResponseEntity.ok<Any>("localhost:8080/urls/" + urlObject.newUrl)
     }
 
@@ -49,14 +48,12 @@ class UrlController {
     fun getOriginalUrl(@PathVariable(value = "tinyUrl") sTinyUrl: String?, response: HttpServletResponse) {
         try {
             val urlMap = urlMappingService?.getByNewUrl(sTinyUrl)
-            if (urlMap != null) {
-                log.println("URL retrieved = {TinyUrl: "+urlMap.newUrl+"}" + urlMap.oldUrl)
+            if (urlMap != null)
                 response.sendRedirect(urlMap.oldUrl)
-            } else
-                response.sendError(HttpStatus.BAD_REQUEST.value(), "Shortened URL does not generated.")
-        } catch ( e:Exception) {
+            response.sendError(HttpStatus.BAD_REQUEST.value(), "Shortened URL does not generated.")
+        } catch (e: Exception) {
             e.printStackTrace();
-            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Internal server error!");
+            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal server error!");
         }
 
 
