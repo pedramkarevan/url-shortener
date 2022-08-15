@@ -7,7 +7,7 @@ Highly scale-able, URL shortener MVP using Zookeeper, Cassandra, Redis as a cach
 
 <body class="stackedit">
   <div class="stackedit__html"><h1 id="matching-prefixes">URL Shortener</h1>
-<p>Url Shorteners such is the services that convert long urls (which can be over a hundred character long) to short urls </p>
+<p>Url Shorteners is the services that convert long urls (which can be over a hundred character long) to short urls. </p>
 <h1 id="solution">Instruction</h1>
 <p>For the MVP I only care that I provide a proper REST API that will enable other users/ clients to send a URL and will receive some kind of identifier/ hash to which this URL corresponds in other system. And the other way around of course, meaning that a user should be able to resolve the full URL.</p>
 <h1 id="solution">Solution</h1>
