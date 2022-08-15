@@ -1,6 +1,6 @@
 ##step1 -Root of the project
 docker compose up
-Run java -jar
+Run java -jar {build}
 
 ## Some Docker commands
 ## Pulling redis image from docker hub
