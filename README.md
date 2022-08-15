@@ -18,7 +18,7 @@ The MVP was implemented by Kotlin and uses Zookeeper to assign the id and counte
 <br>
 Accessing the services can use by the **"docker compose up"** command and running the build.
 <br>
-The solution would be a** MVP** and implements the basic functionality and covers with some basic tests to.De
+The solution would be a** MVP** that implements the basic functionality and covers with some basic tests to.
 </div>
 </body>
 
