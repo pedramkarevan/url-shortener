@@ -16,7 +16,9 @@ Highly scale-able, URL shortener MVP using Zookeeper, Cassandra, Redis as a cach
 <h1 id="structure-and-configuration">Tech Structure and Configuration</h1>
 The MVP was implemented by Kotlin and uses Zookeeper to assign the id and counter range to the application server. It will mark that counter range as “used” after assigning it to the server. It won’t give the same range to any other application server ever again.TinyURL is registered in Cassandra and Redis for cashing and database scalability. There is two API for generating the short URLs and resolving them by redirect response.
 <br>
-Accessing the services can use by the "docker compose up" command and running the build.
+Accessing the services can use by the **"docker compose up"** command and running the build.
+<br>
+The solution would be a** MVP** and implements the basic functionality and covers with some basic tests to.De
 </div>
 </body>
 
