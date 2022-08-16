@@ -50,7 +50,8 @@ class UrlController {
             val urlMap = urlMappingService?.getByNewUrl(sTinyUrl)
             if (urlMap != null)
                 response.sendRedirect(urlMap.oldUrl)
-            response.sendError(HttpStatus.BAD_REQUEST.value(), "Shortened URL does not generated.")
+            else
+                response.sendError(HttpStatus.BAD_REQUEST.value(), "Shortened URL does not generated.")
         } catch (e: Exception) {
             e.printStackTrace();
             response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal server error!");
